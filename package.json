@@ -1,0 +1,23 @@
+{
+  "name": "jaimewebsite",
+  "version": "0.0.1",
+  "description": "Development of a page for musician Jaime",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Rafael Freitas",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,38 @@
+
+//margins
+//========
+
+$logo-margins: 10%;
+$main-margins: 3% 5% 5% 3%;
+$main-paddings: 3%;
+$form-elem-margins:3%;
+$form-elem-margins-mobile:2%;
+
+//colors
+//=======
+
+$faded-green: rgba(210, 255, 113, 0.2);
+$faded-purple: rgba(163, 96, 247, 0.2);
+
+$main-green: rgba(210, 255, 113, 1);
+$main-purple: rgba(163, 96, 247, 1);
+
+//FONTS
+//=======
+
+$main-font: 'BenchNine';
+$logo-font: Lobster;
+
+$logo-font-size: 20rem;
+$logo-font-size-mobile: 10rem;
+
+//BREAK POINTS
+//=============
+
+$mobile: 400px;
+
+//VIDEO measures
+//==============
+
+$video-width: 100%;
+$video-height: (($video-width * 64.39)/100) + 'px';

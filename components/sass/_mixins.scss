@@ -1,0 +1,12 @@
+@mixin break($value, $value2:0px) {
+  @media screen and (max-width: $value) and (min-width: $value2){
+    @content
+  }
+};
+
+@mixin flex-box($property, $value) {
+  #{$property}:$value;
+  -moz-#{$property}:$value;
+  -webkit-#{$property}:$value;
+  -ms-#{$property}:$value;
+};
