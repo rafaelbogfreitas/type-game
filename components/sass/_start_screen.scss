@@ -18,11 +18,17 @@
         display:flex;
         width: 420px;
         height: 160px;
+        
         img {
-            width: 20%;
+            width: 0%;
             height: 150px;
             margin: 5px;
-            box-shadow: 0px 0px 5px 1px;
+
+            @for $i from 1 through 4 {
+                &:nth-child(1n + #{$i}) {
+                    animation: typed 0.01s linear forwards #{$i/2}s;
+                }
+            }
         }
 
         .cursor-container {
@@ -34,8 +40,8 @@
 
             .cursor {
                 height:100%;
-                width: 10%;
-                margin-left: 20px;
+                width: 5px;
+                margin-left: 10px;
                 background-color: orange;
             }
         }
