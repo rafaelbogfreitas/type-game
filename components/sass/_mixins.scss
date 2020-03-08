@@ -10,3 +10,10 @@
   -webkit-#{$property}:$value;
   -ms-#{$property}:$value;
 };
+
+@mixin box-shadow($value) {
+  box-shadow:$value;
+  -moz-box-shadow:$value;
+  -webkit-box-shadow:$value;
+  -ms-box-shadow:$value;
+};
