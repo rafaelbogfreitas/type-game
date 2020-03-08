@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Megrim|Monofett&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Megrim|Monofett|Ubuntu+Mono&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -109,8 +109,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     opacity: 1;
   }
 }
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 * {
   box-sizing: border-box;
+  font-family: "Major Mono Display";
+  font-size: 15px;
 }
 
 .start-screen {
@@ -133,9 +143,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
   background-color: white;
+  box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
+  -ms-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
   transition: transform 1s linear;
 }
 .start-screen .start-logo-container {
@@ -175,7 +190,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .start-btn {
-  font-family: Megrim;
   border: none;
   font-size: 3rem;
   margin-top: 100px;
@@ -183,8 +197,144 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   animation: fadeIn 1s linear forwards 5.5s;
 }
 
+img {
+  height: 100%;
+}
+
 .game-screen {
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  padding: 20px;
+}
+.game-screen * {
+  border: 1px solid orange;
+}
+
+.pieces-container {
+  width: 100%;
+  height: 20%;
+}
+
+.info-container {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  width: 100%;
+  height: calc(80% - 20px);
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main-piece-container {
+  width: 50%;
+  height: 100%;
+  margin-right: 20px;
+}
+.main-piece-container img {
+  width: 100%;
+  animation: rotate 30s linear infinite;
+  border: none;
+}
+
+.player-console {
+  width: calc(50% - 20px);
+  height: 100%;
+  padding: 10px;
+}
+
+.score-board {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  width: 100%;
+  height: 20%;
+  font-family: "Major Mono Display";
+  font-size: 3rem;
+}
+
+.score-container {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+}
+.score-container > * {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  height: 100%;
+}
+
+.score-board-header {
+  width: 60%;
+}
+
+.score {
+  width: 40%;
+}
+
+.message-console {
+  width: 100%;
+  height: 40%;
+  padding: 20px;
+  font-family: "Ubuntu Mono";
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+}
+
+.prompt {
+  animation: flash 0.5s linear infinite alternate;
+}
+
+.points-scored {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+.input-container {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  width: 100%;
+  height: 40%;
+}
+
+.game-input {
+  width: 100%;
+  height: 40%;
+  font-size: 5rem;
+  padding-left: 50px;
 }
