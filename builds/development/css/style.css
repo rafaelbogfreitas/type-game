@@ -180,6 +180,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 0%;
   height: 150px;
   margin: 5px;
+  transform-origin: left;
   animation: typed 0.01s linear forwards 0.5s;
 }
 .start-screen .start-logo-container img:nth-child(2) {
@@ -204,15 +205,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 100%;
   width: 5px;
   margin-left: 10px;
-  background-color: orange;
+  background-color: #cb6309;
 }
 
 .start-btn {
-  border: none;
+  border: 1px solid #cb6309;
+  padding: 10px 20px;
   font-size: 3rem;
+  color: #4e565d;
   margin-top: 100px;
   opacity: 0;
+  cursor: pointer;
   animation: fadeIn 1s linear forwards 5.5s;
+}
+.start-btn:hover {
+  box-shadow: 2px 1px 3px 1px gray;
+  -moz-box-shadow: 2px 1px 3px 1px gray;
+  -webkit-box-shadow: 2px 1px 3px 1px gray;
+  -ms-box-shadow: 2px 1px 3px 1px gray;
 }
 
 img {
@@ -286,6 +296,10 @@ img {
   -moz-display: flex;
   -webkit-display: flex;
   -ms-display: flex;
+  justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
   width: 70%;
   height: 100%;
   padding: 20px;
@@ -303,25 +317,19 @@ img {
 }
 
 .score-board-header {
-  width: 60%;
+  color: #cb6309;
+  width: auto;
 }
 
 .score {
-  width: 40%;
+  color: #4e565d;
+  width: auto;
 }
 
-.message-console {
-  width: 100%;
-  height: 40%;
-  padding: 20px;
-  font-family: "Ubuntu Mono";
-  font-size: 1.5rem;
-  background-color: black;
-  color: white;
-}
-
-.prompt {
-  animation: flash 0.5s linear infinite alternate;
+.points-scored-container {
+  width: 30%;
+  height: 100%;
+  perspective: 1000px;
 }
 
 .points-scored {
@@ -337,8 +345,31 @@ img {
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
-  width: 30%;
+  width: 100%;
   height: 100%;
+  transform: translateZ(-100px) rotateX(-90deg);
+  transform-origin: center;
+  transform-style: preserve-3d;
+  color: #cb6309;
+}
+
+.foldUp {
+  transform: translateZ(0px) rotateX(0deg);
+  transition: transform 3s linear;
+}
+
+.message-console {
+  width: 100%;
+  height: 40%;
+  padding: 20px;
+  font-family: "Ubuntu Mono";
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+}
+
+.prompt {
+  animation: flash 0.5s linear infinite alternate;
 }
 
 .input-container {

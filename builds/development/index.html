@@ -7,6 +7,8 @@
   <title>T!PE</title>
 </head>
 <body>
+
+  <!-- START screen -->
   <section class="start-screen">
 
     <!-- Logo animated container -->
@@ -24,6 +26,8 @@
     <!-- start game btn -->
     <button class="start-btn">ST<span>A</span>RT</button>
   </section>
+
+  <!-- GAME screen -->
   <section class="game-screen">
     <div class="pieces-container">
       <img src="./images/dark-hexagon.svg" alt="">
@@ -38,11 +42,14 @@
             <div class="score-board-header">SCORE</div>
             <div class="score">100</div>
           </div>
-          <div class="points-scored">+50</div>
+          <div class="points-scored-container">
+            <div class="points-scored">+50</div>
+          </div>
         </div>
         <div class="message-console">
-          <span class="prompt">&gt;</span>
+          <span>&gt;</span>
           <span class="console-text"></span>
+          <span class="prompt">|</span>
         </div>
         <div class="input-container">
           <input class="game-input" type="text">
@@ -50,6 +57,10 @@
       </div>
     </div>
   </section>
+
+  <!-- FINAL screen -->
+  <section class="final-screen"></section>
+
   <script src="js/script.js"></script>
 </body>
 </html>
