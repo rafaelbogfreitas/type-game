@@ -71,3 +71,22 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes slideLeft {
+    0% {
+        margin-left: 100%;
+        transform:rotate(0deg);
+    }
+    80%{
+        margin-left:0%;
+        transform: rotate(0deg);
+    }
+    90% {
+        margin-left:1%;
+        transform: rotate(180deg);
+    }
+    100% {
+        margin-left: 0%;
+        transform: rotate(360deg);
+    }
+}
