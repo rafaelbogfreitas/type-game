@@ -3,6 +3,8 @@
 @import "compass";
 @import "compass/reset";
 
+@import url('https://fonts.googleapis.com/css?family=Megrim|Monofett&display=swap');
+
 //Mixins
 //========
 @import 'mixins';
@@ -18,6 +20,10 @@
 //Start
 //======
 @import 'start_screen';
+
+//Game screen
+//===========
+@import 'game_screen';
 
 
 

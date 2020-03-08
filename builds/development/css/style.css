@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Megrim|Monofett&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -74,6 +75,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     box-shadow: 0px 0px 5px 0.5px;
   }
 }
+@keyframes untype {
+  0% {
+    width: 0%;
+    opacity: 0;
+    box-shadow: 0px 0px 0px 0px;
+    margin: 0;
+  }
+  1% {
+    width: 20%;
+    opacity: 1;
+    box-shadow: 0px 0px 5px 0.5px;
+    margin: 5px;
+  }
+  99% {
+    width: 20%;
+    opacity: 1;
+    box-shadow: 0px 0px 5px 0.5px;
+    margin: 5px;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+    box-shadow: 0px 0px 0px 0px;
+    margin: 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -83,6 +118,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -moz-display: flex;
   -webkit-display: flex;
   -ms-display: flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   justify-content: center;
   -moz-justify-content: center;
   -webkit-justify-content: center;
@@ -96,6 +135,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: white;
+  transition: transform 1s linear;
 }
 .start-screen .start-logo-container {
   display: flex;
@@ -106,18 +147,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 0%;
   height: 150px;
   margin: 5px;
-}
-.start-screen .start-logo-container img:nth-child(1n + 1) {
   animation: typed 0.01s linear forwards 0.5s;
 }
-.start-screen .start-logo-container img:nth-child(1n + 2) {
-  animation: typed 0.01s linear forwards 1s;
+.start-screen .start-logo-container img:nth-child(2) {
+  animation: untype 0.5s linear forwards 1s;
 }
-.start-screen .start-logo-container img:nth-child(1n + 3) {
-  animation: typed 0.01s linear forwards 1.5s;
+.start-screen .start-logo-container img:nth-child(3) {
+  animation: typed 0.01s linear forwards 3s;
 }
-.start-screen .start-logo-container img:nth-child(1n + 4) {
-  animation: typed 0.01s linear forwards 2s;
+.start-screen .start-logo-container img:nth-child(4) {
+  animation: typed 0.01s linear forwards 4s;
+}
+.start-screen .start-logo-container img:nth-child(5) {
+  animation: typed 0.01s linear forwards 5s;
 }
 .start-screen .start-logo-container .cursor-container {
   display: inline-block;
@@ -130,4 +172,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 5px;
   margin-left: 10px;
   background-color: orange;
+}
+
+.start-btn {
+  font-family: Megrim;
+  border: none;
+  font-size: 3rem;
+  margin-top: 100px;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards 5.5s;
+}
+
+.game-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
 }

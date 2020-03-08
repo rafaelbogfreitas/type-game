@@ -4,6 +4,7 @@
 
 .start-screen {
     @include flex-box(display, flex);
+    @include flex-box(flex-direction, column);
     @include flex-box(justify-content, center);
     @include flex-box(align-items, center);
     
@@ -13,6 +14,9 @@
 
     width: 100vw;
     height: 100vh;
+    background-color: white;
+
+    transition: transform 1s linear;
 
     .start-logo-container {
         display:flex;
@@ -24,9 +28,17 @@
             height: 150px;
             margin: 5px;
 
-            @for $i from 1 through 4 {
-                &:nth-child(1n + #{$i}) {
+            @for $i from 1 through 5 {
+                @if($i == 2){
+                    &:nth-child(#{$i}) {
+                        animation: untype 0.50s linear forwards #{$i/2}s;
+                    }
+                } @else if ($i == 1){
                     animation: typed 0.01s linear forwards #{$i/2}s;
+                } @else {
+                    &:nth-child(#{$i}) {
+                        animation: typed 0.01s linear forwards #{$i}s;
+                    }
                 }
             }
         }
@@ -46,4 +58,14 @@
             }
         }
     }
+}
+
+.start-btn {
+   font-family: Megrim; 
+   border:none;
+   font-size: 3rem;
+   margin-top: 100px;
+   opacity: 0;
+
+   animation: fadeIn 1s linear forwards 5.5s;
 }

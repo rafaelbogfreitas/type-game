@@ -12,11 +12,52 @@
         width: 0%;
         opacity: 0;
         box-shadow: 0px 0px 0px 0px;
-    };
+    }
 
     to {
         width: 20%;
         opacity: 1;
         box-shadow: 0px 0px 5px 0.5px;
+    }
+}
+
+@keyframes untype {
+    0% {
+        width: 0%;
+        opacity: 0;
+        box-shadow: 0px 0px 0px 0px;
+        margin:0;
+    }
+
+    1% {
+        width: 20%;
+        opacity: 1;
+        box-shadow: 0px 0px 5px 0.5px;
+        margin: 5px;
+    }
+    
+    99% {
+        width: 20%;
+        opacity: 1;
+        box-shadow: 0px 0px 5px 0.5px;
+        margin: 5px;
+    }
+
+
+    100% {
+        width: 0%;
+        opacity: 0;
+        box-shadow: 0px 0px 0px 0px;
+        margin:0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
