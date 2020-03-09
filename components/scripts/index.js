@@ -3,6 +3,7 @@ let startBtn = document.querySelector(".start-btn");//start button
 let startScreen = document.querySelector(".start-screen");//start screen
 let gameInput = document.querySelector(".game-input");//input
 let gameConsole = document.querySelector(".message-console .console-text")//console
+let piece = document.querySelector(".pieces-container img");//first piece in top container
 
 //function that creates the ilusion of typing
 const type = str => {
@@ -22,6 +23,14 @@ const liftStartScreen = () => {
         type("1... 2... 3... T!PE");
     }, 1000);
 
+    pieces.renderFirstPiece();
+    pieces.renderPiece();
+    pieces.renderPiece();
+    pieces.renderPiece();
+
+    setTimeout(function(){
+        pieces.shiftPiece();
+    }, 5000)
 }
 
 
