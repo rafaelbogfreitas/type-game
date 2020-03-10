@@ -123,7 +123,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: rotate(0deg);
   }
   80% {
-    margin-left: 0%;
+    margin-left: 0;
     transform: rotate(360deg);
   }
   90% {
@@ -131,7 +131,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: rotate(0deg);
   }
   100% {
-    margin-left: 0%;
+    margin-left: 0;
     transform: rotate(360deg);
   }
 }
@@ -147,6 +147,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   100% {
     opacity: 0;
     transform: translateY(0);
+  }
+}
+@keyframes incorrect {
+  from {
+    border: 1px solid red;
+    background-color: #fa9f9f;
+  }
+  to {
+    border: none;
+    background-color: rgba(78, 86, 93, 0.1);
+  }
+}
+@keyframes correct {
+  from {
+    border: 1px solid greenyellow;
+    background-color: #d7f2c7;
+  }
+  to {
+    border: none;
+    background-color: rgba(78, 86, 93, 0.1);
   }
 }
 * {
@@ -241,7 +261,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 img {
-  height: 100%;
+  height: 90%;
 }
 
 .game-screen {
@@ -254,12 +274,19 @@ img {
 }
 
 .pieces-container {
-  width: 100%;
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
   height: 20%;
   border: 1px solid orange;
-  overflow: hidden;
 }
 .pieces-container img {
+  width: calc(100%/9);
   margin-left: 100%;
 }
 
@@ -281,12 +308,24 @@ img {
 }
 
 .main-piece-container {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
   width: 50%;
   height: 100%;
   margin-right: 20px;
 }
 .main-piece-container img {
-  width: 100%;
+  width: 80%;
   animation: rotate 30s linear infinite;
   border: none;
 }
@@ -416,6 +455,14 @@ img {
   padding: 10px 10px 10px 10px;
   outline: none;
   border: none;
+}
+
+.correct {
+  animation: correct 1s ease-out;
+}
+
+.incorrect {
+  animation: incorrect 1s ease-out;
 }
 
 .final-screen {

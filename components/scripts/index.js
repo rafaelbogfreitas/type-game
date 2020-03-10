@@ -32,12 +32,15 @@ startBtn.addEventListener("click", liftStartScreen, false);
 gameInput.addEventListener('keydown', function({which}){
     if(which == 13){
         if(checkAnswer()){
+            gameInput.classList.add("correct");
             pieces.shiftPiece();
             gameState.renderBonus();
             gameState.updateScore();
             if(gameState.score % 200 == 0) updateSpeed();
             gameInput.value = "";
-        }   
+        } else {
+            gameInput.classList.add("incorrect");
+        }  
     }
 },false)
 
@@ -89,3 +92,9 @@ const gameOver = () => {
 
 //Play again button "click" event
 playAgainBtn.addEventListener("click", gameStart, false);
+
+//Input animation event listener
+gameInput.addEventListener("animationend", function(){
+    gameInput.classList.remove("incorrect");
+    gameInput.classList.remove("correct");
+})

@@ -78,7 +78,7 @@
         transform:rotate(0deg);
     }
     80%{
-        margin-left:0%;
+        margin-left: 0;
         transform: rotate(360deg);
     }
     90% {
@@ -86,7 +86,7 @@
         transform: rotate(0deg);
     }
     100% {
-        margin-left: 0%;
+        margin-left: 0;
         transform: rotate(360deg);
     }
 }
@@ -105,5 +105,29 @@
     100% {
         opacity: 0;
         transform: translateY(0);
+    }
+}
+
+@keyframes incorrect {
+    from {
+        border:1px solid red;
+        background-color: rgb(250, 159, 159);
+    }
+
+    to {
+        border: none;
+        background-color: rgba($main-gray, 0.1);
+    }
+}
+
+@keyframes correct {
+    from {
+        border:1px solid greenyellow;
+        background-color: #d7f2c7;
+    }
+
+    to {
+        border: none;
+        background-color: rgba($main-gray, 0.1);
     }
 }
