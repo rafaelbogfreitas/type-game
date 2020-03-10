@@ -8,22 +8,30 @@ let piece = document.querySelector(".pieces-container img");//first piece in top
 let playAgainBtn = document.querySelector(".play-again-btn");
 
 
-//function that creates the ilusion of typing
 
 
 //function that makes the start screen slide up off the viewport
 const liftStartScreen = () => {
-    gameStart();
+    startScreen.style.transform = "translateY(-110vh)";
+    gameState.renderScore();
+    pieces.renderFirstPiece();
+    gameInput.focus();
+    
+    //renders instructions on the game console
+    
+    gameConsole.renderInstructions();
+   
 }
 
 
 //Start button "click" event
 startBtn.addEventListener("click", liftStartScreen, false);
 
+
 //keyboard 'keydown' event listener
 gameInput.addEventListener('keydown', function({which}){
     if(which == 13){
-        if(checkAnswer()){
+        if(checkAnswer() && gameState.start){
             gameConsole.type(gameConsole.getGoodMessage());
             gameInput.classList.add("correct");
             pieces.shiftPiece();
@@ -31,25 +39,26 @@ gameInput.addEventListener('keydown', function({which}){
             gameState.updateScore();
             if(gameState.score % 150 == 0) updateSpeed();
             gameInput.value = "";
-        } else {
+        } else if (!checkAnswer() && gameState.start){
             gameConsole.type(gameConsole.getBadMessage());
             gameInput.classList.add("incorrect");
         }  
+    } else if (which == 32 && gameState.introduction){
+        gameStart();
     }
 },false)
 
 //starts the game
 const gameStart = () => {
-    startScreen.style.transform = "translateY(-110vh)";
+    gameState.start = true;
+    gameConsole.type("T!PE");
     endScreen.style.transform = "translateX(-110vw)";
     gameInput.focus();
     gameInput.value = "";
     pieces.clearCorrectPiecesContainer();
-    setTimeout(function(){
-        // gameConsole.type("1... 2... 3... T!PE");
-        gameConsole.renderInstructions();
-    }, 1000);
-    pieces.renderFirstPiece();
+
+    if(pieces.piecesQueue.length == 0) pieces.renderFirstPiece();
+
     gameState.renderScore();
     gameState.interval = setInterval(function(){
         pieces.renderPiece();
