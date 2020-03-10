@@ -135,6 +135,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: rotate(360deg);
   }
 }
+@keyframes placard {
+  0% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
 * {
   box-sizing: border-box;
   font-family: "Major Mono Display";
@@ -250,7 +264,7 @@ img {
 }
 
 .slideIn {
-  animation: slideLeft 1s ease-out 2s forwards;
+  animation: slideLeft 1s ease-out forwards;
 }
 
 .info-container {
@@ -353,13 +367,13 @@ img {
   -ms-align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 50%;
+  transform: translateY(100%);
+  transition: transform 0.2s linear;
   color: #cb6309;
 }
 
 .foldUp {
-  transition: margin 0.5s ease-in-out;
-  margin-top: 0;
+  animation: placard 1s linear forwards;
 }
 
 .message-console {

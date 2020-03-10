@@ -90,3 +90,20 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes placard {
+    0% {
+        opacity: 1;
+        transform: translateY(100%);
+    }
+    
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
