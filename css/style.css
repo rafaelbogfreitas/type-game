@@ -151,6 +151,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 @keyframes incorrect {
   from {
+    color: red;
     border: 1px solid red;
     background-color: #fa9f9f;
   }
@@ -515,7 +516,14 @@ img {
 .container-img {
   width: 50%;
   height: 100%;
+  padding: 5px;
   border: 1px solid #cb6309;
+  overflow: hidden;
+}
+.container-img img {
+  width: 10%;
+  height: auto;
+  margin: 5px;
 }
 
 .stats-container {

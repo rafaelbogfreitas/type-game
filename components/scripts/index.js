@@ -4,20 +4,12 @@ let startScreen = document.querySelector(".start-screen");//start screen
 let gameInput = document.querySelector(".game-input");//input
 let endScreen = document.querySelector(".final-screen");//final screen
 let endScreenScore = document.querySelector(".stats-score")//total score final screen
-let gameConsole = document.querySelector(".message-console .console-text")//console
 let piece = document.querySelector(".pieces-container img");//first piece in top container
 let playAgainBtn = document.querySelector(".play-again-btn");
 
 
 //function that creates the ilusion of typing
-const type = str => {
-    let newStr = "";
-    str.split("").forEach( (letter, i) => {
-        setTimeout(function(){
-            gameConsole.innerHTML = newStr += letter;
-        }, i * 100);
-    })
-}
+
 
 //function that makes the start screen slide up off the viewport
 const liftStartScreen = () => {
@@ -32,13 +24,15 @@ startBtn.addEventListener("click", liftStartScreen, false);
 gameInput.addEventListener('keydown', function({which}){
     if(which == 13){
         if(checkAnswer()){
+            gameConsole.type(gameConsole.getGoodMessage());
             gameInput.classList.add("correct");
             pieces.shiftPiece();
             gameState.renderBonus();
             gameState.updateScore();
-            if(gameState.score % 200 == 0) updateSpeed();
+            if(gameState.score % 150 == 0) updateSpeed();
             gameInput.value = "";
         } else {
+            gameConsole.type(gameConsole.getBadMessage());
             gameInput.classList.add("incorrect");
         }  
     }
@@ -50,8 +44,10 @@ const gameStart = () => {
     endScreen.style.transform = "translateX(-110vw)";
     gameInput.focus();
     gameInput.value = "";
+    pieces.clearCorrectPiecesContainer();
     setTimeout(function(){
-        type("1... 2... 3... T!PE");
+        // gameConsole.type("1... 2... 3... T!PE");
+        gameConsole.renderInstructions();
     }, 1000);
     pieces.renderFirstPiece();
     gameState.renderScore();
@@ -63,7 +59,6 @@ const gameStart = () => {
 
 //switches the score to update the time of setInterval
 const updateSpeed = () => {
-    console.log("inside updateSpeed()")
     clearInterval(gameState.interval);
     gameState.gameSpeed = gameState.gameSpeed - 500;
     gameState.interval = setInterval(function(){
@@ -81,6 +76,7 @@ const checkAnswer = () => {
 
 //finishes the game and displays the total score scree
 const gameOver = () => {
+    pieces.renderCorrectPieces();
     endScreenScore.innerHTML = gameState.score;
     endScreen.style.transform = "translateX(0)";
     gameState.gameSpeed = 5000;
