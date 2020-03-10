@@ -8,6 +8,7 @@ let gameConsole = document.querySelector(".message-console .console-text")//cons
 let piece = document.querySelector(".pieces-container img");//first piece in top container
 let playAgainBtn = document.querySelector(".play-again-btn");
 
+
 //function that creates the ilusion of typing
 const type = str => {
     let newStr = "";
@@ -30,11 +31,13 @@ startBtn.addEventListener("click", liftStartScreen, false);
 //keyboard 'keydown' event listener
 gameInput.addEventListener('keydown', function({which}){
     if(which == 13){
-        pieces.shiftPiece();
-        gameState.renderBonus();
-        gameState.updateScore();
-        gameState.updateSpeed();
-        console.log(pieces.piecesQueue.length)
+        if(checkAnswer()){
+            pieces.shiftPiece();
+            gameState.renderBonus();
+            gameState.updateScore();
+            if(gameState.score % 200 == 0) updateSpeed();
+            gameInput.value = "";
+        }   
     }
 },false)
 
@@ -43,6 +46,7 @@ const gameStart = () => {
     startScreen.style.transform = "translateY(-110vh)";
     endScreen.style.transform = "translateX(-110vw)";
     gameInput.focus();
+    gameInput.value = "";
     setTimeout(function(){
         type("1... 2... 3... T!PE");
     }, 1000);
@@ -52,6 +56,24 @@ const gameStart = () => {
         pieces.renderPiece();
         gameState.checkGameOver();
     }, gameState.gameSpeed);
+}
+
+//switches the score to update the time of setInterval
+const updateSpeed = () => {
+    console.log("inside updateSpeed()")
+    clearInterval(gameState.interval);
+    gameState.gameSpeed = gameState.gameSpeed - 500;
+    gameState.interval = setInterval(function(){
+        pieces.renderPiece();
+        gameState.checkGameOver();
+    }, gameState.gameSpeed);
+    console.log(gameState.gameSpeed)
+}
+
+//compares the input value with the 'data-piece' attribute
+const checkAnswer = () => {
+    let mainPiece = document.querySelector(".main-piece-container img");
+    return gameInput.value.toLowerCase() == mainPiece.getAttribute("data-piece");
 }
 
 //finishes the game and displays the total score scree
