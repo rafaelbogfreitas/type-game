@@ -1,0 +1,87 @@
+.final-screen {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(white, 0.8);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transform: translateX(-110vw);
+    transition: transform 0.2s ease-in;
+
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+}
+
+.final-screen-info-container {
+    width: 60%;
+    height: 70%;
+    padding: 20px;
+    @include box-shadow(0px 0px 5px -1px $main-gray);
+    background-color: white;
+
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+
+}
+
+.container-img {
+    width: 50%;
+    height: 100%;
+    padding:5px;
+    border: 1px solid $main-orange;
+    overflow: hidden;
+
+    img {
+        width:10%;
+        height: auto;
+        margin:5px;
+    }
+}
+
+.stats-container {
+    @include flex-box(display, flex);
+    @include flex-box(flex-direction, column);
+    @include flex-box(justify-content, space-between);
+    @include flex-box(align-items, center);
+    width: 50%;
+    height: 100%;
+    border: 1px solid $main-orange;
+    font-family: $main-font;
+
+    & > * {
+        padding:20px;
+    }
+
+}
+
+.stats-header {
+    width: 100%;
+    height: auto;
+    font-size: 3rem;
+    color: $main-orange;
+}
+
+.stats-score {
+    width: 100%;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 20px;
+
+
+}
+
+.play-again-btn {
+    border:1px solid $main-orange;
+    color:$main-gray;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    &:hover {
+        @include box-shadow(1px 1px 5px -1px $main-gray);
+        cursor: pointer;
+    }
+}

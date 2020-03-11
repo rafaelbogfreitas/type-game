@@ -23,6 +23,7 @@ const liftStartScreen = () => {
 
     //play theme song
     audio.theme.play();
+    gameState.themePlaying = true;
    
 }
 
@@ -40,7 +41,10 @@ gameInput.addEventListener('keydown', function({which}){
             pieces.shiftPiece();
             gameState.renderBonus();
             gameState.updateScore();
-            updateSpeed();
+            if(gameState.gameSpeed > 1000) {
+                console.log("fez update!")
+                gameState.updateSpeed()
+            }
             gameInput.value = "";
         } else if (!checkAnswer() && gameState.start){
             pieces.renderPiece();
@@ -56,7 +60,9 @@ gameInput.addEventListener('keydown', function({which}){
 const gameStart = () => {
     gameState.start = true;
     //audio
-    audio.theme.play();
+    if(gameState.themePlaying == false) {
+        audio.theme.play();
+    }
     //console
     gameConsole.console.style.color = "white";
     gameConsole.type("T!PE");
@@ -65,6 +71,10 @@ const gameStart = () => {
     //text input
     gameInput.focus();
     gameInput.value = "";
+
+    //time reset
+    gameState.gameSpeed = 3000;
+
     //final screen img container clear
     pieces.clearCorrectPiecesContainer();
 
@@ -79,18 +89,6 @@ const gameStart = () => {
     }, gameState.gameSpeed);
 }//gameStart function
 
-
-//switches the score to update the time of setInterval
-const updateSpeed = () => {
-    console.log(gameState.speed)
-    clearInterval(gameState.interval);
-    gameState.gameSpeed = gameState.gameSpeed - 50;
-    gameState.interval = setInterval(function(){
-        pieces.renderPiece();
-        gameState.checkGameOver();
-    }, gameState.gameSpeed);
-    console.log(gameState.gameSpeed)
-}
 
 //compares the input value with the 'data-piece' attribute
 const checkAnswer = () => {
@@ -107,7 +105,11 @@ const gameOver = () => {
     pieces.clearQueue();
     gameState.clearScore();
     clearInterval(gameState.interval);
+
+    //restart audio
     audio.theme.pause();
+    audio.theme.currentTime = 0;
+    gameState.themePlaying = false;
 }
 
 
