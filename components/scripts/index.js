@@ -20,6 +20,9 @@ const liftStartScreen = () => {
     //renders instructions on the game console
     
     gameConsole.renderInstructions();
+
+    //play theme song
+    audio.theme.play();
    
 }
 
@@ -37,9 +40,10 @@ gameInput.addEventListener('keydown', function({which}){
             pieces.shiftPiece();
             gameState.renderBonus();
             gameState.updateScore();
-            if(gameState.score % 150 == 0) updateSpeed();
+            updateSpeed();
             gameInput.value = "";
         } else if (!checkAnswer() && gameState.start){
+            pieces.renderPiece();
             gameConsole.type(gameConsole.getBadMessage());
             gameInput.classList.add("incorrect");
         }  
@@ -51,25 +55,36 @@ gameInput.addEventListener('keydown', function({which}){
 //starts the game
 const gameStart = () => {
     gameState.start = true;
+    //audio
+    audio.theme.play();
+    //console
+    gameConsole.console.style.color = "white";
     gameConsole.type("T!PE");
+    //final screen
     endScreen.style.transform = "translateX(-110vw)";
+    //text input
     gameInput.focus();
     gameInput.value = "";
+    //final screen img container clear
     pieces.clearCorrectPiecesContainer();
 
+    //main piece container render if not occupied yet
     if(pieces.piecesQueue.length == 0) pieces.renderFirstPiece();
-
+    //score render
     gameState.renderScore();
+    //pieces render interval
     gameState.interval = setInterval(function(){
         pieces.renderPiece();
         gameState.checkGameOver();
     }, gameState.gameSpeed);
-}
+}//gameStart function
+
 
 //switches the score to update the time of setInterval
 const updateSpeed = () => {
+    console.log(gameState.speed)
     clearInterval(gameState.interval);
-    gameState.gameSpeed = gameState.gameSpeed - 500;
+    gameState.gameSpeed = gameState.gameSpeed - 50;
     gameState.interval = setInterval(function(){
         pieces.renderPiece();
         gameState.checkGameOver();
@@ -80,7 +95,7 @@ const updateSpeed = () => {
 //compares the input value with the 'data-piece' attribute
 const checkAnswer = () => {
     let mainPiece = document.querySelector(".main-piece-container img");
-    return gameInput.value.toLowerCase() == mainPiece.getAttribute("data-piece");
+    return gameInput.value.toLowerCase().trim() == mainPiece.getAttribute("data-piece");
 }
 
 //finishes the game and displays the total score scree
@@ -92,6 +107,7 @@ const gameOver = () => {
     pieces.clearQueue();
     gameState.clearScore();
     clearInterval(gameState.interval);
+    audio.theme.pause();
 }
 
 
