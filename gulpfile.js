@@ -108,13 +108,13 @@ function defaultTask(cb) {
   cb();
 }
 
-//pipe song files from 'development/' to 'dist/'
+// pipe song files from 'development/' to 'dist/'
 
-// function pipeSongs(cb){
-//   gulp.src('builds/development/songs/*.mp3')
-//   .pipe(gulp.dest('builds/dist/songs'))
-//   cb();
-// }
+function pipeSongs(cb){
+  gulp.src('builds/development/audio/*.mp3')
+  .pipe(gulp.dest('builds/dist/audio'))
+  cb();
+}
 
 exports.watch = watch;
-exports.default = gulp.series(defaultTask, html, minifyCSS, minifyImages, uglifyJs);
+exports.default = gulp.series(defaultTask, html, minifyCSS, minifyImages, uglifyJs, pipeSongs);

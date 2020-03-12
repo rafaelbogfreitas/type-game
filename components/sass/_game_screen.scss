@@ -1,0 +1,214 @@
+img {
+    height: 90%;
+}
+
+.game-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 20px;
+    // background-color: red;
+}
+
+.manual-screen {
+    @include flex-box(display, flex);
+    @include flex-box(flex-direction, column);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+    width: 100%;
+    height: 100%;
+    
+}
+
+.manual-screen-img {
+    width: 80px !important;
+    height: 80px !important;
+    margin-right: auto;
+
+    @include flex-box(align-self, flex-start)
+}
+
+.manual-screen-name {
+    width:  50%;
+    font-family: $main-font;
+}
+
+.manual-screen-wrap {
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+
+    width: 100%;
+
+}
+
+.pieces-container {
+    @include flex-box(display, flex);
+    @include flex-box(align-items, center);
+
+    height: 20%;
+    border:1px solid orange;
+    // overflow: hidden;
+
+    & > img {
+        width: calc(100%/9);
+        margin-left:100%;
+    }
+}
+
+.slideIn{
+    animation: slideLeft 1s ease-out forwards;
+}
+
+.info-container {
+    @include flex-box(display, flex);
+    width: 100%;
+    border:1px solid orange;
+    height: calc(80% - 20px);
+    padding:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-piece-container {
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+
+    width: 50%;
+    height: 100%;
+    margin-right: 20px;
+    // border:1px solid orange;
+    
+    img {
+        width: 80%;
+        animation: rotate 30s linear infinite;
+        border:none; //remove after finished layout
+    }
+}
+
+// CONSOLE
+//==========
+
+.player-console {
+    width: calc(50% - 20px);
+    height: 100%;
+    // padding: 10px;
+    border:1px solid orange;
+}
+
+.score-board {
+    @include flex-box(display, flex);
+
+    width: 100%;
+    height: 20%;
+    border-bottom:1px solid orange;
+    
+    font-family: $main-font;
+    font-size: 3rem;
+}
+
+.score-container {
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, space-between);
+
+    width: 70%;
+    height: 100%;
+    padding:20px;
+
+    & > * {
+        @include flex-box(display, flex);
+        @include flex-box(align-items, center);
+
+        height: 100%;
+    }
+
+}
+
+.score-board-header {
+    color:$main-orange;
+    width: auto;
+}
+
+.score {
+    color:$main-gray;
+    width: auto;
+    padding-left: 50px;
+    border-left:1px solid orange;
+}
+
+.points-scored-container {
+    width: 30%;
+    height: 100%;
+    // perspective: 1000px;
+    overflow: hidden;
+}
+
+.points-scored {
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+
+    width: 100%;
+    height: 100%;
+    // margin-top: 50%;
+    transform: translateY(100%);
+    transition: transform 0.2s linear;
+
+    color:$main-orange;
+}
+
+.foldUp {
+    animation: placard 1s linear forwards;
+}
+
+.message-console {
+    width: 100%;
+    height: 40%;
+    padding: 20px;
+    font-family: $console-font;
+    font-size: 1.5rem;
+
+    background-color:black;
+    color:white;
+}
+
+.prompt {
+    animation: flash 0.5s linear infinite alternate;
+}
+
+.input-container {
+
+    @include flex-box(display, flex);
+    @include flex-box(justify-content, center);
+    @include flex-box(align-items, center);
+
+    width: 100%;
+    height: 40%;
+
+}
+
+.game-input {
+    width: 90%;
+    height: 40%;
+    background-color: rgba($main-gray, 0.1);
+    font-size: 5rem;
+    text-transform: uppercase;
+    padding: 10px 10px 10px 10px;
+    outline: none;
+    border:none;
+}
+
+//input animations for right or wrong
+//===================================
+
+.correct {
+    animation: correct 1s ease-out;
+}
+
+.incorrect {
+    animation: incorrect 1s ease-out;
+}

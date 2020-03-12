@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Megrim|Monofett|Ubuntu+Mono&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -122,14 +123,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     margin-left: 100%;
     transform: rotate(0deg);
   }
-  80% {
-    margin-left: 0;
-    transform: rotate(360deg);
-  }
-  90% {
-    margin-left: 1%;
-    transform: rotate(0deg);
-  }
   100% {
     margin-left: 0;
     transform: rotate(360deg);
@@ -151,6 +144,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 @keyframes incorrect {
   from {
+    color: red;
     border: 1px solid red;
     background-color: #fa9f9f;
   }
@@ -273,6 +267,58 @@ img {
   padding: 20px;
 }
 
+.manual-screen {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.manual-screen-img {
+  width: 80px !important;
+  height: 80px !important;
+  margin-right: auto;
+  align-self: flex-start;
+  -moz-align-self: flex-start;
+  -webkit-align-self: flex-start;
+  -ms-align-self: flex-start;
+}
+
+.manual-screen-name {
+  width: 50%;
+  font-family: "Major Mono Display";
+}
+
+.manual-screen-wrap {
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  width: 100%;
+}
+
 .pieces-container {
   display: flex;
   -moz-display: flex;
@@ -285,7 +331,7 @@ img {
   height: 20%;
   border: 1px solid orange;
 }
-.pieces-container img {
+.pieces-container > img {
   width: calc(100%/9);
   margin-left: 100%;
 }
@@ -515,7 +561,14 @@ img {
 .container-img {
   width: 50%;
   height: 100%;
+  padding: 5px;
   border: 1px solid #cb6309;
+  overflow: hidden;
+}
+.container-img img {
+  width: 10%;
+  height: auto;
+  margin: 5px;
 }
 
 .stats-container {
@@ -571,3 +624,4 @@ img {
   -ms-box-shadow: 1px 1px 5px -1px #4e565d;
   cursor: pointer;
 }
+
