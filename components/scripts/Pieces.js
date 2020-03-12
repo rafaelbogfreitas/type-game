@@ -104,8 +104,37 @@ class PiecesQueue {
             
     }
 
+    //renders a manual with pieces names
+    renderManualScreen(){
+        let container = document.createElement("div");
+        container.classList.add("manual-screen");
+
+        this.piecesNames.map((a, i) => {
+            //create a wrapper div for each pair img/name
+            let imgNameDiv = document.createElement("div");
+            imgNameDiv.classList.add("manual-screen-wrap");
+            //creates a div with the name of the piece
+            let divName = document.createElement("div");
+            divName.classList.add("manual-screen-name");
+            divName.innerHTML = this.piecesNames[i];
+
+            //creates an image element and adds a class
+            let image = new Image();
+            image.classList.add("manual-screen-img");
+            image.src = this.piecesSrc[i][i];
+
+            //appends the img and the text to the container
+            imgNameDiv.appendChild(image);
+            imgNameDiv.appendChild(divName);
+            container.appendChild(imgNameDiv);
+        })
+
+        this.mainContainer.appendChild(container);
+    }
+
     renderFirstPiece(){
         let firstPiece = this.createPiece();
+        this.mainContainer.innerHTML = "";
         this.mainContainer.appendChild(firstPiece);
         console.log(this.piecesQueue)
     }

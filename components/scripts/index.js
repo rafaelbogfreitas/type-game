@@ -14,7 +14,8 @@ let playAgainBtn = document.querySelector(".play-again-btn");
 const liftStartScreen = () => {
     startScreen.style.transform = "translateY(-110vh)";
     gameState.renderScore();
-    pieces.renderFirstPiece();
+    // pieces.renderFirstPiece();
+    pieces.renderManualScreen();
     gameInput.focus();
     
     //renders instructions on the game console
