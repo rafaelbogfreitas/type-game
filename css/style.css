@@ -1,573 +1,65 @@
-@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Megrim|Monofett|Ubuntu+Mono&display=swap");
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
+/*
+Error: File to import not found or unreadable: game_screen.
+       Load paths:
+         /Users/macbookpro/Desktop/Web Development/Studying/Ironhack/T!PE/components/sass
+         /Library/Ruby/Gems/2.3.0/gems/compass-core-1.0.3/stylesheets
+         Compass::SpriteImporter
+        on line 26 of /Users/macbookpro/Desktop/Web Development/Studying/Ironhack/T!PE/components/sass/style.scss
 
-html {
-  line-height: 1;
-}
+21: //======
+22: @import 'start_screen';
+23: 
+24: //Game screen
+25: //===========
+26: @import 'game_screen';
+27: 
+28: //Final scree
+29: //===========
+30: @import 'final_screen';
 
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-@keyframes flash {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes typed {
-  from {
-    width: 0%;
-    opacity: 0;
-    box-shadow: 0px 0px 0px 0px;
-  }
-  to {
-    width: 20%;
-    opacity: 1;
-    box-shadow: 0px 0px 5px 0.5px;
-  }
-}
-@keyframes untype {
-  0% {
-    width: 0%;
-    opacity: 0;
-    box-shadow: 0px 0px 0px 0px;
-    margin: 0;
-  }
-  1% {
-    width: 20%;
-    opacity: 1;
-    box-shadow: 0px 0px 5px 0.5px;
-    margin: 5px;
-  }
-  99% {
-    width: 20%;
-    opacity: 1;
-    box-shadow: 0px 0px 5px 0.5px;
-    margin: 5px;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-    box-shadow: 0px 0px 0px 0px;
-    margin: 0;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes slideLeft {
-  0% {
-    margin-left: 100%;
-    transform: rotate(0deg);
-  }
-  80% {
-    margin-left: 0;
-    transform: rotate(360deg);
-  }
-  90% {
-    margin-left: 1%;
-    transform: rotate(0deg);
-  }
-  100% {
-    margin-left: 0;
-    transform: rotate(360deg);
-  }
-}
-@keyframes placard {
-  0% {
-    opacity: 1;
-    transform: translateY(100%);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-}
-@keyframes incorrect {
-  from {
-    border: 1px solid red;
-    background-color: #fa9f9f;
-  }
-  to {
-    border: none;
-    background-color: rgba(78, 86, 93, 0.1);
-  }
-}
-@keyframes correct {
-  from {
-    border: 1px solid greenyellow;
-    background-color: #d7f2c7;
-  }
-  to {
-    border: none;
-    background-color: rgba(78, 86, 93, 0.1);
-  }
-}
-* {
-  box-sizing: border-box;
-  font-family: "Major Mono Display";
-  font-size: 15px;
-}
-
-.start-screen {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  flex-direction: column;
-  -moz-flex-direction: column;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
-  -ms-box-shadow: 0px 9px 19px -6px rgba(0, 0, 0, 0.75);
-  transition: transform 1s linear;
-}
-.start-screen .start-logo-container {
-  display: flex;
-  width: 420px;
-  height: 160px;
-}
-.start-screen .start-logo-container img {
-  width: 0%;
-  height: 150px;
-  margin: 5px;
-  transform-origin: left;
-  animation: typed 0.01s linear forwards 0.5s;
-}
-.start-screen .start-logo-container img:nth-child(2) {
-  animation: untype 0.5s linear forwards 1s;
-}
-.start-screen .start-logo-container img:nth-child(3) {
-  animation: typed 0.01s linear forwards 3s;
-}
-.start-screen .start-logo-container img:nth-child(4) {
-  animation: typed 0.01s linear forwards 4s;
-}
-.start-screen .start-logo-container img:nth-child(5) {
-  animation: typed 0.01s linear forwards 5s;
-}
-.start-screen .start-logo-container .cursor-container {
-  display: inline-block;
-  height: 100%;
-  width: 20%;
-  animation: flash 0.5s linear infinite alternate;
-}
-.start-screen .start-logo-container .cursor-container .cursor {
-  height: 100%;
-  width: 5px;
-  margin-left: 10px;
-  background-color: #cb6309;
-}
-
-.start-btn {
-  border: 1px solid #cb6309;
-  padding: 10px 20px;
-  font-size: 3rem;
-  color: #4e565d;
-  margin-top: 100px;
-  margin-right: 45px;
-  opacity: 0;
-  cursor: pointer;
-  animation: fadeIn 1s linear forwards 5.5s;
-}
-.start-btn:hover {
-  box-shadow: 2px 1px 3px 1px gray;
-  -moz-box-shadow: 2px 1px 3px 1px gray;
-  -webkit-box-shadow: 2px 1px 3px 1px gray;
-  -ms-box-shadow: 2px 1px 3px 1px gray;
-}
-
-img {
-  height: 90%;
-}
-
-.game-screen {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px;
-}
-
-.pieces-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  height: 20%;
-  border: 1px solid orange;
-}
-.pieces-container img {
-  width: calc(100%/9);
-  margin-left: 100%;
-}
-
-.slideIn {
-  animation: slideLeft 1s ease-out forwards;
-}
-
-.info-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  width: 100%;
-  border: 1px solid orange;
-  height: calc(80% - 20px);
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.main-piece-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  width: 50%;
-  height: 100%;
-  margin-right: 20px;
-}
-.main-piece-container img {
-  width: 80%;
-  animation: rotate 30s linear infinite;
-  border: none;
-}
-
-.player-console {
-  width: calc(50% - 20px);
-  height: 100%;
-  border: 1px solid orange;
-}
-
-.score-board {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  width: 100%;
-  height: 20%;
-  border-bottom: 1px solid orange;
-  font-family: "Major Mono Display";
-  font-size: 3rem;
-}
-
-.score-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: space-between;
-  -moz-justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  width: 70%;
-  height: 100%;
-  padding: 20px;
-}
-.score-container > * {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  height: 100%;
-}
-
-.score-board-header {
-  color: #cb6309;
-  width: auto;
-}
-
-.score {
-  color: #4e565d;
-  width: auto;
-  padding-left: 50px;
-  border-left: 1px solid orange;
-}
-
-.points-scored-container {
-  width: 30%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.points-scored {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-  transition: transform 0.2s linear;
-  color: #cb6309;
-}
-
-.foldUp {
-  animation: placard 1s linear forwards;
-}
-
-.message-console {
-  width: 100%;
-  height: 40%;
-  padding: 20px;
-  font-family: "Ubuntu Mono";
-  font-size: 1.5rem;
-  background-color: black;
-  color: white;
-}
-
-.prompt {
-  animation: flash 0.5s linear infinite alternate;
-}
-
-.input-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  width: 100%;
-  height: 40%;
-}
-
-.game-input {
-  width: 90%;
-  height: 40%;
-  background-color: rgba(78, 86, 93, 0.1);
-  font-size: 5rem;
-  text-transform: uppercase;
-  padding: 10px 10px 10px 10px;
-  outline: none;
-  border: none;
-}
-
-.correct {
-  animation: correct 1s ease-out;
-}
-
-.incorrect {
-  animation: incorrect 1s ease-out;
-}
-
-.final-screen {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  transform: translateX(-110vw);
-  transition: transform 0.2s ease-in;
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-}
-
-.final-screen-info-container {
-  width: 60%;
-  height: 70%;
-  padding: 20px;
-  box-shadow: 0px 0px 5px -1px #4e565d;
-  -moz-box-shadow: 0px 0px 5px -1px #4e565d;
-  -webkit-box-shadow: 0px 0px 5px -1px #4e565d;
-  -ms-box-shadow: 0px 0px 5px -1px #4e565d;
-  background-color: white;
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  justify-content: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-}
-
-.container-img {
-  width: 50%;
-  height: 100%;
-  border: 1px solid #cb6309;
-}
-
-.stats-container {
-  display: flex;
-  -moz-display: flex;
-  -webkit-display: flex;
-  -ms-display: flex;
-  flex-direction: column;
-  -moz-flex-direction: column;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  justify-content: space-between;
-  -moz-justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  width: 50%;
-  height: 100%;
-  border: 1px solid #cb6309;
-  font-family: "Major Mono Display";
-}
-.stats-container > * {
-  padding: 20px;
-}
-
-.stats-header {
-  width: 100%;
-  height: auto;
-  font-size: 3rem;
-  color: #cb6309;
-}
-
-.stats-score {
-  width: 100%;
-  font-size: 6rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.play-again-btn {
-  border: 1px solid #cb6309;
-  color: #4e565d;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.play-again-btn:hover {
-  box-shadow: 1px 1px 5px -1px #4e565d;
-  -moz-box-shadow: 1px 1px 5px -1px #4e565d;
-  -webkit-box-shadow: 1px 1px 5px -1px #4e565d;
-  -ms-box-shadow: 1px 1px 5px -1px #4e565d;
-  cursor: pointer;
-}
+Backtrace:
+/Users/macbookpro/Desktop/Web Development/Studying/Ironhack/T!PE/components/sass/style.scss:26
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:44:in `import'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/engine.rb:284:in `render'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/Library/Ruby/Gems/2.3.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:22:in `load'
+/usr/local/bin/compass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: game_screen.\A        Load paths:\A          /Users/macbookpro/Desktop/Web Development/Studying/Ironhack/T!PE/components/sass\A          /Library/Ruby/Gems/2.3.0/gems/compass-core-1.0.3/stylesheets\A          Compass::SpriteImporter\A         on line 26 of /Users/macbookpro/Desktop/Web Development/Studying/Ironhack/T!PE/components/sass/style.scss\A \A 21: //======\A 22: @import 'start_screen';\A 23: \A 24: //Game screen\A 25: //===========\A 26: @import 'game_screen';\A 27: \A 28: //Final scree\A 29: //===========\A 30: @import 'final_screen';"; }
