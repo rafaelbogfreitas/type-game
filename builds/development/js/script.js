@@ -132,6 +132,11 @@ class PiecesQueue {
         }
 
         this.piecesQueue.push(pieceObj);
+
+        this.piecesQueue.length > 7 ?
+        this.container.classList.add("warning") :
+        this.container.classList.remove("warning");
+
         return pieceObj; 
     }
 
@@ -440,6 +445,9 @@ const gameOver = () => {
     pieces.clearQueue();
     gameState.clearScore();
     clearInterval(gameState.interval);
+
+    //remove 'warning' class from pieces container
+    pieces.container.classList.remove("warning");
 
     //restart audio
     audio.theme.pause();

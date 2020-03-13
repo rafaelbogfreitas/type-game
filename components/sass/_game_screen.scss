@@ -26,7 +26,7 @@ img {
 .manual-screen-img {
     width: 80px !important;
     height: 80px !important;
-    margin-right: auto;
+    margin-right: 30px;
 
     @include flex-box(align-self, flex-start)
 }
@@ -59,6 +59,10 @@ img {
     }
 }
 
+.warning {
+    animation: warning 0.2s linear infinite alternate;
+}
+
 .slideIn{
     animation: slideLeft 1s ease-out forwards;
 }
@@ -83,7 +87,7 @@ img {
     margin-right: 20px;
     // border:1px solid orange;
     
-    img {
+    & > img {
         width: 80%;
         animation: rotate 30s linear infinite;
         border:none; //remove after finished layout

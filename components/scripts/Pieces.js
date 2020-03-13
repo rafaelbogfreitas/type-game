@@ -77,6 +77,11 @@ class PiecesQueue {
         }
 
         this.piecesQueue.push(pieceObj);
+
+        this.piecesQueue.length > 7 ?
+        this.container.classList.add("warning") :
+        this.container.classList.remove("warning");
+
         return pieceObj; 
     }
 

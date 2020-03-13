@@ -107,6 +107,9 @@ const gameOver = () => {
     gameState.clearScore();
     clearInterval(gameState.interval);
 
+    //remove 'warning' class from pieces container
+    pieces.container.classList.remove("warning");
+
     //restart audio
     audio.theme.pause();
     audio.theme.currentTime = 0;

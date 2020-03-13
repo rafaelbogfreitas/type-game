@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Megrim|Monofett|Ubuntu+Mono&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -163,6 +162,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-color: rgba(78, 86, 93, 0.1);
   }
 }
+@keyframes warning {
+  from {
+    outline: 4px solid red;
+  }
+  to {
+    outline: none;
+  }
+}
 * {
   box-sizing: border-box;
   font-family: "Major Mono Display";
@@ -291,7 +298,7 @@ img {
 .manual-screen-img {
   width: 80px !important;
   height: 80px !important;
-  margin-right: auto;
+  margin-right: 30px;
   align-self: flex-start;
   -moz-align-self: flex-start;
   -webkit-align-self: flex-start;
@@ -331,9 +338,13 @@ img {
   height: 20%;
   border: 1px solid orange;
 }
-.pieces-container > img {
+.pieces-container + img {
   width: calc(100%/9);
   margin-left: 100%;
+}
+
+.warning {
+  animation: warning 0.2s linear infinite alternate;
 }
 
 .slideIn {
@@ -370,7 +381,7 @@ img {
   height: 100%;
   margin-right: 20px;
 }
-.main-piece-container img {
+.main-piece-container > img {
   width: 80%;
   animation: rotate 30s linear infinite;
   border: none;
@@ -624,4 +635,3 @@ img {
   -ms-box-shadow: 1px 1px 5px -1px #4e565d;
   cursor: pointer;
 }
-
