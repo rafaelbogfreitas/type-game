@@ -652,3 +652,52 @@ img {
   padding: 0;
   margin-bottom: 20px;
 }
+
+.mobile-block {
+  display: none;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background-color: white;
+  font-family: "Major Mono Display";
+  display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+  -ms-display: flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: space-around;
+  -moz-justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+}
+@media screen and (max-width: 1000px) and (min-width: 0px) {
+  .mobile-block {
+    display: flex;
+    position: absolute;
+  }
+}
+.mobile-block > * {
+  display: none;
+  text-align: center;
+}
+@media screen and (max-width: 1000px) and (min-width: 0px) {
+  .mobile-block > * {
+    display: block;
+  }
+}
+.mobile-block h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #cb6309;
+}
+.mobile-block p {
+  font-size: 2rem;
+}

@@ -1,0 +1,37 @@
+.mobile-block {
+    display: none;
+    @include break(1000px){
+        display:flex;
+        position: absolute;
+    }
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: white;
+    font-family: $main-font;
+
+    @include flex-box(display, flex);
+    @include flex-box(flex-direction, column);
+    @include flex-box(justify-content, space-around);
+    @include flex-box(align-items, center);
+
+    & > * {
+        display:none;
+        text-align: center;
+
+        @include break(1000px){
+            display: block;
+        }
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: $main-orange;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}
