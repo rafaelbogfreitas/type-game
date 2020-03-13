@@ -391,7 +391,7 @@ gameInput.addEventListener('keydown', function({which}){
             gameConsole.type(gameConsole.getBadMessage());
             gameInput.classList.add("incorrect");
         }  
-    } else if (which == 32 && gameState.introduction){
+    } else if (which == 32 && gameState.introduction && !gameState.start){
         gameStart();
     }
 },false)
