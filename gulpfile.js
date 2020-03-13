@@ -83,7 +83,7 @@ function minifyCSS(cb) {
 
 //minify images and pipe to 'dist/images'
 function minifyImages(cb) {
-  gulp.src('builds/development/images/*.*')
+  gulp.src('builds/development/images/**/*.*')
   .pipe(imagemin([
   	imagemin.gifsicle({interlaced: true}),
   	imagemin.jpegtran({progressive: true}),
