@@ -66,7 +66,7 @@ const gameStart = () => {
     }
     //console
     gameConsole.console.style.color = "white";
-    gameConsole.type("T!PE");
+    gameConsole.type("...1 ...2 ...3 ...T!PE</br></br>> Music by: Daft Punk</br>> Title: Dafunk</br>");
     //final screen
     endScreen.style.transform = "translateX(-110vw)";
     //text input

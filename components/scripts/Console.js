@@ -2,10 +2,10 @@ class Console {
     constructor(){
         this.console = document.querySelector(".message-console .console-text")//console
         this.instructions = [
-            "t!pe the name of the shape you see on the left of the screen and hit Enter",
+            "T!pe the name of the shape you see on the left of the screen and hit Enter",
             "If right you get 50 points for a piece and 150 for clearing the queue",
-            "don't let the queue flood with pieces or you will LOSE! Hit the space bar!"
-                 
+            "Don't let the queue flood with pieces or you will LOSE! ", 
+            'Hit the <span style="color:orange;">space bar</span>, when ready to start!'
         ]
         this.positiveSentences = [
             "Well Done!",
@@ -36,7 +36,7 @@ class Console {
 
     //prints the instructions in the game console
     renderInstructions() {
-        this.type(this.instructions.join("</br>> "))
+        this.type(this.instructions.join("</br></br>> "))
     }
 
     //returns a random positive message
