@@ -7,5 +7,5 @@ const createAudio = str => {
 }
 
 let audio = {
-    theme: createAudio("../../builds/development/audio/dafunk.mp3"),
+    theme: createAudio("./audio/dafunk.mp3"),
 }
