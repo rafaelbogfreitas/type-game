@@ -7,4 +7,4 @@ T!PE GAME
 ![Type Game](https://media.giphy.com/media/YSYXi6AEDeAOycWRcX/giphy.gif)
 
 
-[Link to play the game](https://www.typegame.netlify.com)
+[Link to play the game](https://typegame.netlify.app)
