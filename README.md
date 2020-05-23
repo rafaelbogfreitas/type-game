@@ -2,5 +2,5 @@
 
 T!PE GAME
 =========
-
+![Type Game](https://media.giphy.com/media/RibdPww2KL1PBgLjXC/giphy.gif)
 [Link to play the game](https://www.typegame.netlify.com)
